@@ -388,6 +388,42 @@ t=0: P=0
 
 状态：主要测试 PASS，可冻结为当前 uniform-field finite-transit 基线。
 
+### Step 6A：受控 magnetic-history benchmark
+
+目录：`step6A_magnetic_history/`
+
+问题：在相同当前磁场、光场、总照光时间和入口态下，仅改变过去经历的纵向磁场，当前 `rho` 和 `P` 是否不同；差异能保持多久？
+
+受控比较：
+
+```text
+0 G for 1 us -> 300 G for T_post
+vs
+300 G for 1 us -> 300 G for T_post
+```
+
+并做反向 `300 G -> 0 G` 对 `0 G -> 0 G`。统一使用 K39 D1、`I_g/8`、纯 `Delta-m=+1`、`v_z=0`、`s=1e-6`。laser detuning 从冻结 Step 5.5A 的当前场局域 weak-linear absorption 主峰数值确定。
+
+完成内容：
+
+- 所有正式点直接传播完整 256x256 Liouvillian，没有使用 Step 5.5B 的 51 维 reduced space。
+- identical-history、uniform-L 和 segment-splitting controls 均达到约 `1e-13` 或更低。
+- 正向/反向扫描规定的 `T_post=0...10 us`。
+- 分解 `Delta rho` 的 `gg/ge/eg/ee` blocks，并用冻结 Step 5 计算 `Delta P_q`。
+- 检查 trace、Hermiticity、minimum eigenvalue 和 finite。
+- 验证 1 us pre-stage 时 optical coherence 已建立，而 ground-population redistribution 小于初始完整历史差异的 1%。
+- 输出完整 NPZ、三个 PNG、JSON controls 和可直接由网页版 AI 阅读的 `outputs/results.md`。
+
+主要结果：
+
+- 磁场切换瞬间存在明确 history effect：正向/反向最大 `||Delta rho||_F` 约 `1.02e-4/1.14e-4`，最大 `|Delta P_q|` 约 `8.74e-19/1.10e-18 C/m^2`。
+- 初始差异主要在互为 Hermitian conjugate 的 optical `ge/eg` blocks。
+- 在给定离散扫描上，P-memory 的 1/e crossing 位于 `50...100 ns`，10% crossing 位于 `100...200 ns`；没有强行做单指数拟合。
+- 到 `1 us`，归一化 P-memory 仅剩约 `4.17e-6/2.52e-6`，所以当前弱光纵向 B 条件下，微秒 transit 上的 local-response approximation 对 P 很好。
+- 完整 `rho` 在 `1 us` 仍保留约 `0.677%/0.794%` 的小平台，主要位于 `gg`；其 norm 的 `92.5%/99.999%` 来自对角 population，而不是长寿命 ground coherence。这是无 ground relaxation 模型中的微弱预抽运布居历史。
+
+状态：PASS。结论只适用于弱光、纵向 B、瞬时场切换和当前无碰撞/无 ground relaxation 模型，不能直接外推到横向场、连续梯度或强光。
+
 ## 6. 当前数值性能和优化边界
 
 最初改用 L 矩阵的主要原因是直接调用 PyLCP OBE 对大量原子、切片和失谐点过慢。
@@ -424,6 +460,7 @@ t=0: P=0
 8. 无 ground relaxation 的无限时间圆偏振 OBE 会进入暗态，不等于 ElecSus 热平衡线性模型。
 9. finite transit-time 把 coherence 建立、近线性响应和 optical pumping 暗态连接起来。
 10. 当前强光下的响应差异是模型预期的历史依赖/非线性效应，不应靠经验缩放消除。
+11. 弱光纵向 B 的 optical magnetic memory 在约百纳秒内衰减；微秒时当前 P 已近似局域响应，但完整 rho 可保留很小的 ground-population 历史。
 
 ## 8. 当前模型假设和未完成内容
 
@@ -629,6 +666,16 @@ GitHub 中路径均相对于仓库根目录。
 - `step5_5B_finite_transit/outputs/detuning_spectrum_5000_atoms.npz`
 - `step5_5B_finite_transit/outputs/weak_light_detuning_spectrum.png`
 - `step5_5B_finite_transit/outputs/weak_light_detuning_spectrum_5000_atoms.npz`
+
+### Step 6A
+
+- `step6A_magnetic_history/outputs/results.md`
+- `step6A_magnetic_history/outputs/controls.json`
+- `step6A_magnetic_history/outputs/magnetic_memory_decay.png`
+- `step6A_magnetic_history/outputs/rho_block_memory.png`
+- `step6A_magnetic_history/outputs/current_field_response_recovery.png`
+- `step6A_magnetic_history/outputs/forward_0G_to_300G.npz`
+- `step6A_magnetic_history/outputs/reverse_300G_to_0G.npz`
 
 读取图像时要结合生成脚本和参数，不要只看文件名。特别是：
 
