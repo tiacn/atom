@@ -1,0 +1,847 @@
+{
+  "status": "PASS",
+  "config": {
+    "length_mm": 25.0,
+    "B_center_G": 2500.0,
+    "delta_B_G": 500.0,
+    "saturation": 1e-06,
+    "delta_m": 1,
+    "tau_memory_ns": 100.0,
+    "max_internal_dt_ns": 1.25,
+    "external_laser_detuning_MHz": 4460.216577760929,
+    "number_density_m3": 302480331373171.75
+  },
+  "high_field_benchmark": {
+    "fields_G": [
+      2000.0,
+      2100.0,
+      2200.0,
+      2300.0,
+      2400.0,
+      2500.0
+    ],
+    "detuning_axis_MHz": [
+      -6980.0,
+      7178.0,
+      2.0
+    ],
+    "worst_complex_relative_error": 0.007403921140547816,
+    "worst_peak_position_error_MHz": 4.0,
+    "minimum_complex_correlation": 0.9999905238051385,
+    "per_field": [
+      {
+        "relative_complex_l2": 0.005296576389683262,
+        "relative_real_l2": 0.005365406481223747,
+        "relative_imag_l2": 0.005230346566175799,
+        "max_point_relative": 0.005874533781561954,
+        "peak_position_model_MHz": 3728.0,
+        "peak_position_reference_MHz": 3724.0,
+        "peak_position_error_MHz": 4.0,
+        "peak_imag_relative_error": -0.0008967873144382554,
+        "fwhm_model_MHz": 850.4373398624975,
+        "fwhm_reference_MHz": 850.2161435627577,
+        "fwhm_error_MHz": 0.22119629973985866,
+        "complex_correlation": 0.9999950654732848
+      },
+      {
+        "relative_complex_l2": 0.005805301322312744,
+        "relative_real_l2": 0.005883909838654139,
+        "relative_imag_l2": 0.0057297815099962715,
+        "max_point_relative": 0.006455886478383036,
+        "peak_position_model_MHz": 3914.0,
+        "peak_position_reference_MHz": 3910.0,
+        "peak_position_error_MHz": 4.0,
+        "peak_imag_relative_error": -0.00036599318227472055,
+        "fwhm_model_MHz": 850.3029483554833,
+        "fwhm_reference_MHz": 850.5922820847704,
+        "fwhm_error_MHz": -0.2893337292871365,
+        "complex_correlation": 0.999994008097279
+      },
+      {
+        "relative_complex_l2": 0.006420699660122804,
+        "relative_real_l2": 0.006511584677723146,
+        "relative_imag_l2": 0.006333539671688468,
+        "max_point_relative": 0.0071520089210601245,
+        "peak_position_model_MHz": 4100.0,
+        "peak_position_reference_MHz": 4096.0,
+        "peak_position_error_MHz": 4.0,
+        "peak_imag_relative_error": -0.0007009456945608381,
+        "fwhm_model_MHz": 850.1822169602624,
+        "fwhm_reference_MHz": 850.2022975378627,
+        "fwhm_error_MHz": -0.02008057760031079,
+        "complex_correlation": 0.9999927257672039
+      },
+      {
+        "relative_complex_l2": 0.005994920952445097,
+        "relative_real_l2": 0.006083912036192942,
+        "relative_imag_l2": 0.005909752848129293,
+        "max_point_relative": 0.0066386482344875115,
+        "peak_position_model_MHz": 4286.0,
+        "peak_position_reference_MHz": 4284.0,
+        "peak_position_error_MHz": 2.0,
+        "peak_imag_relative_error": -0.001042447391533328,
+        "fwhm_model_MHz": 850.072561477532,
+        "fwhm_reference_MHz": 849.8186118367043,
+        "fwhm_error_MHz": 0.2539496408276136,
+        "complex_correlation": 0.9999938333049336
+      },
+      {
+        "relative_complex_l2": 0.006651001047001278,
+        "relative_real_l2": 0.006755307357561266,
+        "relative_imag_l2": 0.006551414517386517,
+        "max_point_relative": 0.007381173756488985,
+        "peak_position_model_MHz": 4474.0,
+        "peak_position_reference_MHz": 4470.0,
+        "peak_position_error_MHz": 4.0,
+        "peak_imag_relative_error": -0.0005496289674425177,
+        "fwhm_model_MHz": 849.9711494900707,
+        "fwhm_reference_MHz": 850.1951371401278,
+        "fwhm_error_MHz": -0.2239876500570972,
+        "complex_correlation": 0.9999923204013886
+      },
+      {
+        "relative_complex_l2": 0.007403921140547816,
+        "relative_real_l2": 0.007527169178348913,
+        "relative_imag_l2": 0.0072865749025197634,
+        "max_point_relative": 0.008228500301407713,
+        "peak_position_model_MHz": 4660.0,
+        "peak_position_reference_MHz": 4656.0,
+        "peak_position_error_MHz": 4.0,
+        "peak_imag_relative_error": -0.0009114015843970874,
+        "fwhm_model_MHz": 849.8763381534418,
+        "fwhm_reference_MHz": 849.8073001871344,
+        "fwhm_error_MHz": 0.06903796630740544,
+        "complex_correlation": 0.9999905238051385
+      }
+    ]
+  },
+  "propagator_controls": {
+    "full_liouville_dimension": 256,
+    "reduced_space_used": false,
+    "decay_completeness_error": 3.3306690738754696e-16,
+    "decay_analytic_vs_full256_error": 1.6840254834297188e-16,
+    "single_step_rho_relative_error": {
+      "10.0": 1.0478722585581025e-06,
+      "5.0": 2.559051351660588e-07,
+      "2.5": 1.6152281381375365e-08,
+      "1.25": 6.440162861681421e-10
+    },
+    "constant_B_total_time_us": 83.33333333333334,
+    "constant_B_internal_substeps": 66667,
+    "constant_B_rho_relative_error": 6.94109779137381e-10,
+    "constant_B_P_relative_error": 4.100873597254942e-05,
+    "max_internal_dt_ns": 1.25
+  },
+  "spatial_convergence": {
+    "velocity_m_s": 300.0,
+    "dz_um": [
+      10.0,
+      5.0,
+      2.5,
+      1.25,
+      0.625
+    ],
+    "profile_error_vs_finest": [
+      0.017870587024136016,
+      0.005618682232101741,
+      0.0037387477149632797,
+      0.002686226657952105,
+      0.0
+    ],
+    "shared_node_error_vs_finest": [
+      0.0002336908349146777,
+      0.00010758964809777083,
+      0.00010759125256308413,
+      6.131367472198939e-11,
+      0.0
+    ],
+    "final_error_vs_finest": [
+      4.107268707508456e-06,
+      2.8614982966661925e-06,
+      2.861503095858007e-06,
+      2.1791553017222225e-11,
+      0.0
+    ],
+    "bulk_global_metric_error_vs_finest": [
+      1.3704266599856574e-06,
+      2.9558843822607983e-07,
+      1.5677982375117416e-06,
+      3.1849897019764484e-07,
+      0.0
+    ],
+    "metrics": [
+      {
+        "epsilon_global_raw": 0.3099620505545209,
+        "max_epsilon_raw": 0.4213664096156977,
+        "max_epsilon_raw_z_mm": -11.440000000000001,
+        "epsilon_global_bulk": 0.3099851952558983,
+        "max_epsilon_bulk": 0.4213664096156977,
+        "max_epsilon_bulk_z_mm": -11.440000000000001,
+        "excluded_entry_distance_mm": 0.15,
+        "max_delta_B_memory_G": 2.3999999999999995
+      },
+      {
+        "epsilon_global_raw": 0.3099423720347007,
+        "max_epsilon_raw": 0.42150463742807526,
+        "max_epsilon_raw_z_mm": 11.465000000000003,
+        "epsilon_global_bulk": 0.3099868612709965,
+        "max_epsilon_bulk": 0.42150463742807526,
+        "max_epsilon_bulk_z_mm": 11.465000000000003,
+        "excluded_entry_distance_mm": 0.15,
+        "max_delta_B_memory_G": 2.3999999999999995
+      },
+      {
+        "epsilon_global_raw": 0.30993640744239864,
+        "max_epsilon_raw": 0.420777578331111,
+        "max_epsilon_raw_z_mm": 11.465000000000003,
+        "epsilon_global_bulk": 0.3099881334807958,
+        "max_epsilon_bulk": 0.420777578331111,
+        "max_epsilon_bulk_z_mm": 11.465000000000003,
+        "excluded_entry_distance_mm": 0.15,
+        "max_delta_B_memory_G": 2.3999999999999995
+      },
+      {
+        "epsilon_global_raw": 0.3099261058909768,
+        "max_epsilon_raw": 0.42123386838172044,
+        "max_epsilon_raw_z_mm": 11.463750000000001,
+        "epsilon_global_bulk": 0.3099862471835881,
+        "max_epsilon_bulk": 0.42123386838172044,
+        "max_epsilon_bulk_z_mm": 11.463750000000001,
+        "excluded_entry_distance_mm": 0.15,
+        "max_delta_B_memory_G": 2.3999999999999995
+      },
+      {
+        "epsilon_global_raw": 0.3099241373407519,
+        "max_epsilon_raw": 0.4211584532175138,
+        "max_epsilon_raw_z_mm": 11.463750000000001,
+        "epsilon_global_bulk": 0.3099865656825583,
+        "max_epsilon_bulk": 0.4211584532175138,
+        "max_epsilon_bulk_z_mm": 11.463750000000001,
+        "excluded_entry_distance_mm": 0.15,
+        "max_delta_B_memory_G": 2.3999999999999995
+      }
+    ],
+    "deltaB_zero_metrics": {
+      "epsilon_global_raw": 0.015461783445873397,
+      "max_epsilon_raw": 1.0,
+      "max_epsilon_raw_z_mm": -12.5,
+      "epsilon_global_bulk": 0.002723006024283125,
+      "max_epsilon_bulk": 0.0027491018834645796,
+      "max_epsilon_bulk_z_mm": -12.35,
+      "excluded_entry_distance_mm": 0.15,
+      "max_delta_B_memory_G": 0.0
+    },
+    "max_internal_dt_ns": 1.25
+  },
+  "profiles": {
+    "50": {
+      "epsilon_global_raw": 0.03854164394361249,
+      "max_epsilon_raw": 0.09053998036804159,
+      "max_epsilon_raw_z_mm": 8.765000000000002,
+      "epsilon_global_bulk": 0.03852170209161843,
+      "max_epsilon_bulk": 0.09053998036804159,
+      "max_epsilon_bulk_z_mm": 8.765000000000002,
+      "excluded_entry_distance_mm": 0.024999999999999998,
+      "max_delta_B_memory_G": 0.3999999999999999,
+      "velocity_m_s": 50.0,
+      "dz_um": 5.0,
+      "points": 5001,
+      "max_trace_error": 1.781790516735642e-10,
+      "max_hermiticity_error": 1.7208564610433218e-13,
+      "minimum_eigenvalue": -1.3659047107409448e-16,
+      "internal_substeps": 400000,
+      "local_left_right_symmetry_error": 3.9094630776508414e-13,
+      "hysteresis": [
+        {
+          "B_G": 2100.0,
+          "z_left_mm": -11.180339887498949,
+          "z_right_mm": 11.180339887498949,
+          "P_left_C_m2": [
+            -2.398879228487491e-20,
+            1.57911683012703e-22
+          ],
+          "P_right_C_m2": [
+            -2.3988290588330194e-20,
+            1.5793553491115804e-22
+          ],
+          "normalized_difference": 5.711480097836401e-07
+        },
+        {
+          "B_G": 2200.0,
+          "z_left_mm": -9.682458365518544,
+          "z_right_mm": 9.682458365518544,
+          "P_left_C_m2": [
+            -4.9719450714565275e-20,
+            9.93083861417304e-22
+          ],
+          "P_right_C_m2": [
+            -4.971891432545334e-20,
+            9.884597563148736e-22
+          ],
+          "normalized_difference": 5.293554225254681e-06
+        },
+        {
+          "B_G": 2300.0,
+          "z_left_mm": -7.90569415042095,
+          "z_right_mm": 7.90569415042095,
+          "P_left_C_m2": [
+            -5.580607320374383e-20,
+            5.97592988897479e-21
+          ],
+          "P_right_C_m2": [
+            -5.581682361543438e-20,
+            5.927793760241909e-21
+          ],
+          "normalized_difference": 5.608643636111266e-05
+        },
+        {
+          "B_G": 2400.0,
+          "z_left_mm": -5.5901699437494745,
+          "z_right_mm": 5.5901699437494745,
+          "P_left_C_m2": [
+            1.8283468824672983e-19,
+            3.7682955976861136e-20
+          ],
+          "P_right_C_m2": [
+            1.8230439574148345e-19,
+            3.8423264882622615e-20
+          ],
+          "normalized_difference": 0.0010355345593488223
+        }
+      ]
+    },
+    "100": {
+      "epsilon_global_raw": 0.08898387436101078,
+      "max_epsilon_raw": 0.17801743922256377,
+      "max_epsilon_raw_z_mm": 9.37,
+      "epsilon_global_bulk": 0.08897127145107724,
+      "max_epsilon_bulk": 0.17801743922256377,
+      "max_epsilon_bulk_z_mm": 9.37,
+      "excluded_entry_distance_mm": 0.049999999999999996,
+      "max_delta_B_memory_G": 0.7999999999999998,
+      "velocity_m_s": 100.0,
+      "dz_um": 5.0,
+      "points": 5001,
+      "max_trace_error": 8.710765782178892e-11,
+      "max_hermiticity_error": 1.182363988884788e-13,
+      "minimum_eigenvalue": -2.035823237769407e-16,
+      "internal_substeps": 200000,
+      "local_left_right_symmetry_error": 5.752933926392789e-13,
+      "hysteresis": [
+        {
+          "B_G": 2100.0,
+          "z_left_mm": -11.180339887498949,
+          "z_right_mm": 11.180339887498949,
+          "P_left_C_m2": [
+            -2.88485306449718e-20,
+            2.610048360539349e-22
+          ],
+          "P_right_C_m2": [
+            -2.884832220287986e-20,
+            2.603958247854437e-22
+          ],
+          "normalized_difference": 7.318311585537138e-07
+        },
+        {
+          "B_G": 2200.0,
+          "z_left_mm": -9.682458365518544,
+          "z_right_mm": 9.682458365518544,
+          "P_left_C_m2": [
+            -1.0186570463314355e-19,
+            6.28734006892939e-21
+          ],
+          "P_right_C_m2": [
+            -1.0191179172509174e-19,
+            6.0981093274778825e-21
+          ],
+          "normalized_difference": 0.0002214295274003086
+        },
+        {
+          "B_G": 2300.0,
+          "z_left_mm": -7.90569415042095,
+          "z_right_mm": 7.90569415042095,
+          "P_left_C_m2": [
+            9.129403769426214e-20,
+            1.459794657007296e-20
+          ],
+          "P_right_C_m2": [
+            9.108050267520932e-20,
+            1.5132244748117157e-20
+          ],
+          "normalized_difference": 0.0006541721367721206
+        },
+        {
+          "B_G": 2400.0,
+          "z_left_mm": -5.5901699437494745,
+          "z_right_mm": 5.5901699437494745,
+          "P_left_C_m2": [
+            7.364621566710788e-21,
+            3.888993525658791e-21
+          ],
+          "P_right_C_m2": [
+            7.35931534009179e-21,
+            3.871072340569681e-21
+          ],
+          "normalized_difference": 2.1249355549352437e-05
+        }
+      ]
+    },
+    "300": {
+      "epsilon_global_raw": 0.3099241373407519,
+      "max_epsilon_raw": 0.4211584532175138,
+      "max_epsilon_raw_z_mm": 11.463750000000001,
+      "epsilon_global_bulk": 0.3099865656825583,
+      "max_epsilon_bulk": 0.4211584532175138,
+      "max_epsilon_bulk_z_mm": 11.463750000000001,
+      "excluded_entry_distance_mm": 0.15,
+      "max_delta_B_memory_G": 2.3999999999999995,
+      "velocity_m_s": 300.0,
+      "dz_um": 0.6250000000006251,
+      "points": 40001,
+      "max_trace_error": 4.038703603077268e-11,
+      "max_hermiticity_error": 3.458154932998394e-14,
+      "minimum_eigenvalue": -3.6346433657460087e-22,
+      "internal_substeps": 80000,
+      "local_left_right_symmetry_error": 7.368660574770862e-13,
+      "hysteresis": [
+        {
+          "B_G": 2100.0,
+          "z_left_mm": -11.180339887498949,
+          "z_right_mm": 11.180339887498949,
+          "P_left_C_m2": [
+            2.2689113128521855e-20,
+            6.654636118080843e-21
+          ],
+          "P_right_C_m2": [
+            2.252272835193899e-20,
+            7.255869065087138e-21
+          ],
+          "normalized_difference": 0.0007091085080743943
+        },
+        {
+          "B_G": 2200.0,
+          "z_left_mm": -9.682458365518544,
+          "z_right_mm": 9.682458365518544,
+          "P_left_C_m2": [
+            -5.234484705046709e-20,
+            8.172413928460464e-21
+          ],
+          "P_right_C_m2": [
+            -5.2530858774806216e-20,
+            7.515139862314117e-21
+          ],
+          "normalized_difference": 0.0007764663737961939
+        },
+        {
+          "B_G": 2300.0,
+          "z_left_mm": -7.90569415042095,
+          "z_right_mm": 7.90569415042095,
+          "P_left_C_m2": [
+            1.9211938169841003e-19,
+            2.7479194518581845e-20
+          ],
+          "P_right_C_m2": [
+            1.8918387430682637e-19,
+            3.211147415995387e-20
+          ],
+          "normalized_difference": 0.006233762195638632
+        },
+        {
+          "B_G": 2400.0,
+          "z_left_mm": -5.5901699437494745,
+          "z_right_mm": 5.5901699437494745,
+          "P_left_C_m2": [
+            3.053359392279148e-20,
+            3.0905772164442376e-22
+          ],
+          "P_right_C_m2": [
+            3.053349583323416e-20,
+            3.109359961638467e-22
+          ],
+          "normalized_difference": 2.137943951609815e-06
+        }
+      ],
+      "diagnostics_scope": "final state here; every saved point passed thresholds in test 03"
+    },
+    "500": {
+      "epsilon_global_raw": 0.48530595047121045,
+      "max_epsilon_raw": 0.5296211430088273,
+      "max_epsilon_raw_z_mm": -12.38,
+      "epsilon_global_bulk": 0.4756234986152483,
+      "max_epsilon_bulk": 0.5284539664437035,
+      "max_epsilon_bulk_z_mm": 12.405000000000003,
+      "excluded_entry_distance_mm": 0.25,
+      "max_delta_B_memory_G": 3.999999999999999,
+      "velocity_m_s": 500.0,
+      "dz_um": 5.0,
+      "points": 5001,
+      "max_trace_error": 2.0048869774197634e-11,
+      "max_hermiticity_error": 5.0220221329309276e-14,
+      "minimum_eigenvalue": -1.3303931758854647e-16,
+      "internal_substeps": 40000,
+      "local_left_right_symmetry_error": 7.342296350573497e-13,
+      "hysteresis": [
+        {
+          "B_G": 2100.0,
+          "z_left_mm": -11.180339887498949,
+          "z_right_mm": 11.180339887498949,
+          "P_left_C_m2": [
+            6.406912315105447e-20,
+            5.833680502051311e-21
+          ],
+          "P_right_C_m2": [
+            6.382684669534803e-20,
+            6.660272995303659e-21
+          ],
+          "normalized_difference": 0.0009809580566410752
+        },
+        {
+          "B_G": 2200.0,
+          "z_left_mm": -9.682458365518544,
+          "z_right_mm": 9.682458365518544,
+          "P_left_C_m2": [
+            5.3672370721527586e-20,
+            1.1918880866253813e-21
+          ],
+          "P_right_C_m2": [
+            5.366542360800974e-20,
+            1.2601317002888775e-21
+          ],
+          "normalized_difference": 7.812013058352798e-05
+        },
+        {
+          "B_G": 2300.0,
+          "z_left_mm": -7.90569415042095,
+          "z_right_mm": 7.90569415042095,
+          "P_left_C_m2": [
+            2.4525552294609874e-20,
+            1.7018912149746032e-22
+          ],
+          "P_right_C_m2": [
+            2.4525489504799428e-20,
+            1.7028394125998294e-22
+          ],
+          "normalized_difference": 1.295142955730038e-07
+        },
+        {
+          "B_G": 2400.0,
+          "z_left_mm": -5.5901699437494745,
+          "z_right_mm": 5.5901699437494745,
+          "P_left_C_m2": [
+            1.664043548645788e-20,
+            9.87576774488042e-23
+          ],
+          "P_right_C_m2": [
+            1.6640282242380053e-20,
+            9.823918072187428e-23
+          ],
+          "normalized_difference": 6.157344184516739e-07
+        }
+      ]
+    },
+    "-50": {
+      "epsilon_global_raw": 0.03500758890218445,
+      "max_epsilon_raw": 0.07741600973612146,
+      "max_epsilon_raw_z_mm": -7.42,
+      "epsilon_global_bulk": 0.03498892989411902,
+      "max_epsilon_bulk": 0.07741600973612146,
+      "max_epsilon_bulk_z_mm": -7.42,
+      "excluded_entry_distance_mm": 0.024999999999999998,
+      "max_delta_B_memory_G": 0.3999999999999999,
+      "velocity_m_s": -50.0,
+      "dz_um": 5.0,
+      "points": 5001,
+      "max_trace_error": 2.2520185830948687e-10,
+      "max_hermiticity_error": 5.62988652187328e-14,
+      "minimum_eigenvalue": -1.2945808217163656e-16,
+      "internal_substeps": 400000,
+      "local_left_right_symmetry_error": 6.058656891792203e-13,
+      "hysteresis": [
+        {
+          "B_G": 2100.0,
+          "z_left_mm": -11.180339887498949,
+          "z_right_mm": 11.180339887498949,
+          "P_left_C_m2": [
+            -1.8083268380371606e-20,
+            2.9947486199498364e-22
+          ],
+          "P_right_C_m2": [
+            -1.8081194741343313e-20,
+            2.979820135037221e-22
+          ],
+          "normalized_difference": 2.9099351799004127e-06
+        },
+        {
+          "B_G": 2200.0,
+          "z_left_mm": -9.682458365518544,
+          "z_right_mm": 9.682458365518544,
+          "P_left_C_m2": [
+            -2.811036836813372e-20,
+            2.4408410950959226e-22
+          ],
+          "P_right_C_m2": [
+            -2.811091830159438e-20,
+            2.443005976335762e-22
+          ],
+          "normalized_difference": 6.730845378973202e-07
+        },
+        {
+          "B_G": 2300.0,
+          "z_left_mm": -7.90569415042095,
+          "z_right_mm": 7.90569415042095,
+          "P_left_C_m2": [
+            -8.784806527292949e-20,
+            4.217767522454754e-21
+          ],
+          "P_right_C_m2": [
+            -8.784118032013715e-20,
+            4.26048425535991e-21
+          ],
+          "normalized_difference": 4.927664793316638e-05
+        },
+        {
+          "B_G": 2400.0,
+          "z_left_mm": -5.5901699437494745,
+          "z_right_mm": 5.5901699437494745,
+          "P_left_C_m2": [
+            1.4967405942347633e-19,
+            3.338853198035769e-20
+          ],
+          "P_right_C_m2": [
+            1.5007235791003093e-19,
+            3.277704946173954e-20
+          ],
+          "normalized_difference": 0.0008311039337795449
+        }
+      ]
+    },
+    "-100": {
+      "epsilon_global_raw": 0.040478112643565524,
+      "max_epsilon_raw": 0.13291931118254036,
+      "max_epsilon_raw_z_mm": -6.6499999999999995,
+      "epsilon_global_bulk": 0.04047183531742147,
+      "max_epsilon_bulk": 0.13291931118254036,
+      "max_epsilon_bulk_z_mm": -6.6499999999999995,
+      "excluded_entry_distance_mm": 0.049999999999999996,
+      "max_delta_B_memory_G": 0.7999999999999998,
+      "velocity_m_s": -100.0,
+      "dz_um": 5.0,
+      "points": 5001,
+      "max_trace_error": 1.242090880107826e-10,
+      "max_hermiticity_error": 7.654226337781347e-14,
+      "minimum_eigenvalue": -1.3943115465245773e-16,
+      "internal_substeps": 200000,
+      "local_left_right_symmetry_error": 6.061162776980968e-13,
+      "hysteresis": [
+        {
+          "B_G": 2100.0,
+          "z_left_mm": -11.180339887498949,
+          "z_right_mm": 11.180339887498949,
+          "P_left_C_m2": [
+            -1.6201376795183176e-20,
+            7.32082372460251e-23
+          ],
+          "P_right_C_m2": [
+            -1.620170163780977e-20,
+            7.285786431937377e-23
+          ],
+          "normalized_difference": 5.439328068153658e-07
+        },
+        {
+          "B_G": 2200.0,
+          "z_left_mm": -9.682458365518544,
+          "z_right_mm": 9.682458365518544,
+          "P_left_C_m2": [
+            -2.349596011248966e-20,
+            1.477335550524923e-22
+          ],
+          "P_right_C_m2": [
+            -2.3496404208553425e-20,
+            1.476448510529319e-22
+          ],
+          "normalized_difference": 5.155603765798341e-07
+        },
+        {
+          "B_G": 2300.0,
+          "z_left_mm": -7.90569415042095,
+          "z_right_mm": 7.90569415042095,
+          "P_left_C_m2": [
+            -4.714123080762191e-20,
+            8.644881189760635e-22
+          ],
+          "P_right_C_m2": [
+            -4.7141543173712286e-20,
+            8.704260512743886e-22
+          ],
+          "normalized_difference": 6.7692868511057855e-06
+        },
+        {
+          "B_G": 2400.0,
+          "z_left_mm": -5.5901699437494745,
+          "z_right_mm": 5.5901699437494745,
+          "P_left_C_m2": [
+            -4.1174762623445026e-20,
+            4.762505625185389e-21
+          ],
+          "P_right_C_m2": [
+            -4.1166834864910237e-20,
+            4.795468143294778e-21
+          ],
+          "normalized_difference": 3.8595692345606036e-05
+        }
+      ]
+    },
+    "-300": {
+      "epsilon_global_raw": 0.03273415156640525,
+      "max_epsilon_raw": 0.051758507465070144,
+      "max_epsilon_raw_z_mm": -0.8500000000000001,
+      "epsilon_global_bulk": 0.03272808251770977,
+      "max_epsilon_bulk": 0.051758507465070144,
+      "max_epsilon_bulk_z_mm": -0.8500000000000001,
+      "excluded_entry_distance_mm": 0.15,
+      "max_delta_B_memory_G": 2.3999999999999995,
+      "velocity_m_s": -300.0,
+      "dz_um": 5.0,
+      "points": 5001,
+      "max_trace_error": 3.370593013477116e-11,
+      "max_hermiticity_error": 3.911907746517546e-14,
+      "minimum_eigenvalue": -1.426929042999592e-16,
+      "internal_substeps": 70000,
+      "local_left_right_symmetry_error": 3.319456964824208e-14,
+      "hysteresis": [
+        {
+          "B_G": 2100.0,
+          "z_left_mm": -11.180339887498949,
+          "z_right_mm": 11.180339887498949,
+          "P_left_C_m2": [
+            -1.1425468669749355e-20,
+            1.5861012411336788e-22
+          ],
+          "P_right_C_m2": [
+            -1.1424075481504682e-20,
+            1.5934404462661754e-22
+          ],
+          "normalized_difference": 1.7905869748106211e-06
+        },
+        {
+          "B_G": 2200.0,
+          "z_left_mm": -9.682458365518544,
+          "z_right_mm": 9.682458365518544,
+          "P_left_C_m2": [
+            -1.4474958138294585e-20,
+            -8.701326252639295e-24
+          ],
+          "P_right_C_m2": [
+            -1.447625284751381e-20,
+            -1.1063263184973465e-23
+          ],
+          "normalized_difference": 3.062828883419094e-06
+        },
+        {
+          "B_G": 2300.0,
+          "z_left_mm": -7.90569415042095,
+          "z_right_mm": 7.90569415042095,
+          "P_left_C_m2": [
+            -1.9925921811291135e-20,
+            8.43850506201871e-23
+          ],
+          "P_right_C_m2": [
+            -1.9926103520009936e-20,
+            8.366883924296071e-23
+          ],
+          "normalized_difference": 8.40215285924962e-07
+        },
+        {
+          "B_G": 2400.0,
+          "z_left_mm": -5.5901699437494745,
+          "z_right_mm": 5.5901699437494745,
+          "P_left_C_m2": [
+            -3.318470200486999e-20,
+            3.686918608767831e-22
+          ],
+          "P_right_C_m2": [
+            -3.3184886708904117e-20,
+            3.711117200894957e-22
+          ],
+          "normalized_difference": 2.7596564506374954e-06
+        }
+      ]
+    },
+    "-500": {
+      "epsilon_global_raw": 0.012633605809569117,
+      "max_epsilon_raw": 0.29226015300203473,
+      "max_epsilon_raw_z_mm": 12.5,
+      "epsilon_global_bulk": 0.010242150135361363,
+      "max_epsilon_bulk": 0.03359882922950424,
+      "max_epsilon_bulk_z_mm": 4.98,
+      "excluded_entry_distance_mm": 0.25,
+      "max_delta_B_memory_G": 3.999999999999999,
+      "velocity_m_s": -500.0,
+      "dz_um": 5.0,
+      "points": 5001,
+      "max_trace_error": 2.5136832535840127e-11,
+      "max_hermiticity_error": 1.0634699153331681e-13,
+      "minimum_eigenvalue": -1.2850603577405025e-16,
+      "internal_substeps": 40000,
+      "local_left_right_symmetry_error": 3.3386606031840335e-15,
+      "hysteresis": [
+        {
+          "B_G": 2100.0,
+          "z_left_mm": -11.180339887498949,
+          "z_right_mm": 11.180339887498949,
+          "P_left_C_m2": [
+            -8.866309586406516e-21,
+            1.2723611546543425e-22
+          ],
+          "P_right_C_m2": [
+            -8.866281147743449e-21,
+            1.2735769481404278e-22
+          ],
+          "normalized_difference": 4.776318403261622e-06
+        },
+        {
+          "B_G": 2200.0,
+          "z_left_mm": -9.682458365518544,
+          "z_right_mm": 9.682458365518544,
+          "P_left_C_m2": [
+            -1.053325000567527e-20,
+            2.759688764469849e-22
+          ],
+          "P_right_C_m2": [
+            -1.0532897087580055e-20,
+            2.791874917927706e-22
+          ],
+          "normalized_difference": 0.00012385979198211607
+        },
+        {
+          "B_G": 2300.0,
+          "z_left_mm": -7.90569415042095,
+          "z_right_mm": 7.90569415042095,
+          "P_left_C_m2": [
+            -1.3104176473768538e-20,
+            5.100332332620596e-23
+          ],
+          "P_right_C_m2": [
+            -1.3104439593178499e-20,
+            4.957017766564971e-23
+          ],
+          "normalized_difference": 5.5738495150190605e-05
+        },
+        {
+          "B_G": 2400.0,
+          "z_left_mm": -5.5901699437494745,
+          "z_right_mm": 5.5901699437494745,
+          "P_left_C_m2": [
+            -1.7341995472342588e-20,
+            1.4525090511382434e-22
+          ],
+          "P_right_C_m2": [
+            -1.734131747121724e-20,
+            1.4530141180170872e-22
+          ],
+          "normalized_difference": 2.60074750967268e-05
+        }
+      ]
+    }
+  }
+}

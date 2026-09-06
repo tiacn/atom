@@ -1,0 +1,17 @@
+{
+  "full_liouville_dimension": 256,
+  "reduced_space_used": false,
+  "decay_completeness_error": 3.3306690738754696e-16,
+  "decay_analytic_vs_full256_error": 1.6840254834297188e-16,
+  "single_step_rho_relative_error": {
+    "10.0": 1.0478722585581025e-06,
+    "5.0": 2.559051351660588e-07,
+    "2.5": 1.6152281381375365e-08,
+    "1.25": 6.440162861681421e-10
+  },
+  "constant_B_total_time_us": 83.33333333333334,
+  "constant_B_internal_substeps": 66667,
+  "constant_B_rho_relative_error": 6.94109779137381e-10,
+  "constant_B_P_relative_error": 4.100873597254942e-05,
+  "max_internal_dt_ns": 1.25
+}

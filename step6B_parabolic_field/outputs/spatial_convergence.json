@@ -1,0 +1,101 @@
+{
+  "velocity_m_s": 300.0,
+  "dz_um": [
+    10.0,
+    5.0,
+    2.5,
+    1.25,
+    0.625
+  ],
+  "profile_error_vs_finest": [
+    0.017870587024136016,
+    0.005618682232101741,
+    0.0037387477149632797,
+    0.002686226657952105,
+    0.0
+  ],
+  "shared_node_error_vs_finest": [
+    0.0002336908349146777,
+    0.00010758964809777083,
+    0.00010759125256308413,
+    6.131367472198939e-11,
+    0.0
+  ],
+  "final_error_vs_finest": [
+    4.107268707508456e-06,
+    2.8614982966661925e-06,
+    2.861503095858007e-06,
+    2.1791553017222225e-11,
+    0.0
+  ],
+  "bulk_global_metric_error_vs_finest": [
+    1.3704266599856574e-06,
+    2.9558843822607983e-07,
+    1.5677982375117416e-06,
+    3.1849897019764484e-07,
+    0.0
+  ],
+  "metrics": [
+    {
+      "epsilon_global_raw": 0.3099620505545209,
+      "max_epsilon_raw": 0.4213664096156977,
+      "max_epsilon_raw_z_mm": -11.440000000000001,
+      "epsilon_global_bulk": 0.3099851952558983,
+      "max_epsilon_bulk": 0.4213664096156977,
+      "max_epsilon_bulk_z_mm": -11.440000000000001,
+      "excluded_entry_distance_mm": 0.15,
+      "max_delta_B_memory_G": 2.3999999999999995
+    },
+    {
+      "epsilon_global_raw": 0.3099423720347007,
+      "max_epsilon_raw": 0.42150463742807526,
+      "max_epsilon_raw_z_mm": 11.465000000000003,
+      "epsilon_global_bulk": 0.3099868612709965,
+      "max_epsilon_bulk": 0.42150463742807526,
+      "max_epsilon_bulk_z_mm": 11.465000000000003,
+      "excluded_entry_distance_mm": 0.15,
+      "max_delta_B_memory_G": 2.3999999999999995
+    },
+    {
+      "epsilon_global_raw": 0.30993640744239864,
+      "max_epsilon_raw": 0.420777578331111,
+      "max_epsilon_raw_z_mm": 11.465000000000003,
+      "epsilon_global_bulk": 0.3099881334807958,
+      "max_epsilon_bulk": 0.420777578331111,
+      "max_epsilon_bulk_z_mm": 11.465000000000003,
+      "excluded_entry_distance_mm": 0.15,
+      "max_delta_B_memory_G": 2.3999999999999995
+    },
+    {
+      "epsilon_global_raw": 0.3099261058909768,
+      "max_epsilon_raw": 0.42123386838172044,
+      "max_epsilon_raw_z_mm": 11.463750000000001,
+      "epsilon_global_bulk": 0.3099862471835881,
+      "max_epsilon_bulk": 0.42123386838172044,
+      "max_epsilon_bulk_z_mm": 11.463750000000001,
+      "excluded_entry_distance_mm": 0.15,
+      "max_delta_B_memory_G": 2.3999999999999995
+    },
+    {
+      "epsilon_global_raw": 0.3099241373407519,
+      "max_epsilon_raw": 0.4211584532175138,
+      "max_epsilon_raw_z_mm": 11.463750000000001,
+      "epsilon_global_bulk": 0.3099865656825583,
+      "max_epsilon_bulk": 0.4211584532175138,
+      "max_epsilon_bulk_z_mm": 11.463750000000001,
+      "excluded_entry_distance_mm": 0.15,
+      "max_delta_B_memory_G": 2.3999999999999995
+    }
+  ],
+  "deltaB_zero_metrics": {
+    "epsilon_global_raw": 0.015461783445873397,
+    "max_epsilon_raw": 1.0,
+    "max_epsilon_raw_z_mm": -12.5,
+    "epsilon_global_bulk": 0.002723006024283125,
+    "max_epsilon_bulk": 0.0027491018834645796,
+    "max_epsilon_bulk_z_mm": -12.35,
+    "excluded_entry_distance_mm": 0.15,
+    "max_delta_B_memory_G": 0.0
+  },
+  "max_internal_dt_ns": 1.25
+}
