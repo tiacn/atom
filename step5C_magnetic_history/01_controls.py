@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Step 6A 测试 1：频率选择、完整 256 维传播 controls 和弱抽运诊断。"""
+"""Step 5C 测试 1：频率选择、完整 256 维传播 controls 和弱抽运诊断。"""
 
 import json
 from pathlib import Path
@@ -14,7 +14,7 @@ from magnetic_memory import (
 
 
 def main():
-    print("Step 6A 测试 1：peak + controls")
+    print("Step 5C 测试 1：peak + controls")
     model = FullMagneticMemoryModel(
         past_B_G=0.0,
         current_B_G=300.0,

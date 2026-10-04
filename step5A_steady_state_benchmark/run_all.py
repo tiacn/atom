@@ -1,16 +1,20 @@
 # -*- coding: utf-8 -*-
-"""逐项运行 Step 6A。"""
+"""运行 Step 5A 的正式失败诊断。"""
 
 import subprocess
 import sys
-import time
 from pathlib import Path
 
 
 def main():
     this_dir = Path(__file__).resolve().parent
-    started = time.perf_counter()
-    for script in ("01_controls.py", "02_memory_scan.py"):
+    scripts = (
+        "01_literal_steady_state.py",
+        "02_velocity_convergence.py",
+        "03_linear_thermal_vs_elecsus.py",
+        "04_residual_diagnosis.py",
+    )
+    for script in scripts:
         print()
         print("=" * 78)
         print(f"运行 {script}")
@@ -20,9 +24,10 @@ def main():
             cwd=str(this_dir),
             check=True,
         )
-    elapsed = time.perf_counter() - started
+
     print()
-    print(f"全部 PASS：Step 6A magnetic-history benchmark（{elapsed:.3f} s）")
+    print("所有诊断脚本执行成功")
+    print("STEP 5A OVERALL: FAIL（full steady-state 暗态与 ElecSus 热平衡假设不同）")
 
 
 if __name__ == "__main__":

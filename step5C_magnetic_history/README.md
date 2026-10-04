@@ -1,6 +1,6 @@
-# Step 6A：受控 magnetic-history benchmark
+# Step 5C：受控 magnetic-history benchmark
 
-本目录在不修改 Step 2–5.5B 冻结代码的前提下，用 deterministic 单原子实验回答：过去经历的纵向磁场是否影响当前 `rho` 和 SI 宏观极化 `P`，以及这种记忆在切换到当前磁场后持续多久。
+本目录在不修改 Step 2–5B 冻结代码的前提下，用 deterministic 单原子实验回答：过去经历的纵向磁场是否影响当前 `rho` 和 SI 宏观极化 `P`，以及这种记忆在切换到当前磁场后持续多久。
 
 ## 正式比较
 
@@ -16,7 +16,7 @@ History:         300 G for T_pre -> 0 G for T_post
 Local reference:   0 G for T_pre -> 0 G for T_post
 ```
 
-共同参数：K39 D1、`rho_entry=I_g/8`、纯 `Delta-m=+1`、`v_z=0`、top-hat constant light、`s=1e-6`、`T_pre=1 us`。每组 laser detuning 从冻结 Step 5.5A fixed-thermal local weak-linear absorption 数值确定，并明确保存 ElecSus external axis 与 Step 4 internal detuning。
+共同参数：K39 D1、`rho_entry=I_g/8`、纯 `Delta-m=+1`、`v_z=0`、top-hat constant light、`s=1e-6`、`T_pre=1 us`。每组 laser detuning 从冻结 Step 5A fixed-thermal local weak-linear absorption 数值确定，并明确保存 ElecSus external axis 与 Step 4 internal detuning。
 
 ## 传播和边界
 
@@ -27,7 +27,7 @@ rho_H = exp[L(B_current) T_post] exp[L(B_past) T_pre] rho_entry
 rho_R = exp[L(B_current) T_post] exp[L(B_current) T_pre] rho_entry
 ```
 
-不使用 Step 5.5B 的 51 维 reduced space，不使用平均 B，不交换时间顺序。本阶段不加入 MC、Maxwell propagation、Gaussian beam、碰撞、ground relaxation 或连续梯度。
+不使用 Step 5B 的 51 维 reduced space，不使用平均 B，不交换时间顺序。本阶段不加入 MC、Maxwell propagation、Gaussian beam、碰撞、ground relaxation 或连续梯度。
 
 ## 测试
 

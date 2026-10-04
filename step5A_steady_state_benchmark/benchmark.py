@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Step 5.5A 的字面稳态测试和固定热布居线性诊断。
+"""Step 5A 的字面稳态测试和固定热布居线性诊断。
 
 ``literal`` 分支严格求完整 Liouvillian 的无限时间稳态。
 ``linear_thermal`` 分支保持 ElecSus 相同的等基态布居，只用于诊断

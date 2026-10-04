@@ -1,4 +1,4 @@
-# Step 6B：真实抛物线 B(z) 下的 local-vs-trajectory benchmark
+# Step 5D：真实抛物线 B(z) 下的 local-vs-trajectory benchmark
 
 本目录在弱光 `s=1e-6` 下研究纵向连续磁场历史：
 
@@ -13,7 +13,7 @@ z in [-12.5, +12.5] mm.
 
 ## 完整状态空间传播
 
-状态始终是完整 `(16,16)` density matrix，即 256 个 Liouville components；不使用 Step 5.5B 的 51 维 reduced space。由于高场 dense `expm(256x256)` 每个空间点约需 1 秒，正式细网格用 fourth-order symmetric full-state factorization 计算同一个 `L=L_H+L_decay` 的指数作用：
+状态始终是完整 `(16,16)` density matrix，即 256 个 Liouville components；不使用 Step 5B 的 51 维 reduced space。由于高场 dense `expm(256x256)` 每个空间点约需 1 秒，正式细网格用 fourth-order symmetric full-state factorization 计算同一个 `L=L_H+L_decay` 的指数作用：
 
 - Hamiltonian 部分用完整 16x16 Hermitian eigensystem 精确酉传播；
 - spontaneous-decay Lindbladian 用完整 `gg/ge/eg/ee` 解析 block map；

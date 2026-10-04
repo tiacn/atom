@@ -1,4 +1,4 @@
-# Step 5.5A：steady-state benchmark 及暗态诊断
+# Step 5A：steady-state benchmark 及暗态诊断
 
 本目录不修改 Step 2–5，不使用 trajectory、有限驻留时间或传播。
 
@@ -15,7 +15,7 @@
 lim(s -> 0) [lim(t -> infinity) rho(t,s)]
 ```
 
-不等于 ElecSus 使用的固定热平衡线性响应。按原判据，Step 5.5A 必须判定为 FAIL，不能用经验比例修正。
+不等于 ElecSus 使用的固定热平衡线性响应。按原判据，Step 5A 必须判定为 FAIL，不能用经验比例修正。
 
 目录包含两条明确分开的数据流：
 

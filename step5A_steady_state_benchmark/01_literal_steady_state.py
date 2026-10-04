@@ -122,7 +122,7 @@ def main():
     print(f"saved: {output_path}")
 
     print("PASS（诊断）：数值稳态、弱光和 Doppler 节点均确认暗态抽运")
-    print("STEP 5.5A PASS CRITERION: FAIL（literal steady state 不能复现 ElecSus）")
+    print("STEP 5A PASS CRITERION: FAIL（literal steady state 不能复现 ElecSus）")
 
 
 if __name__ == "__main__":

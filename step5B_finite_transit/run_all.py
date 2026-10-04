@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""运行 Step 5.5A 的正式失败诊断。"""
+"""逐项运行 Step 5B。"""
 
 import subprocess
 import sys
@@ -9,10 +9,11 @@ from pathlib import Path
 def main():
     this_dir = Path(__file__).resolve().parent
     scripts = (
-        "01_literal_steady_state.py",
-        "02_velocity_convergence.py",
-        "03_linear_thermal_vs_elecsus.py",
-        "04_residual_diagnosis.py",
+        "01_reduced_propagation.py",
+        "02_single_detuning.py",
+        "03_saturation_scan.py",
+        "04_mc_convergence.py",
+        "05_detuning_spectrum.py",
     )
     for script in scripts:
         print()
@@ -26,8 +27,7 @@ def main():
         )
 
     print()
-    print("所有诊断脚本执行成功")
-    print("STEP 5.5A OVERALL: FAIL（full steady-state 暗态与 ElecSus 热平衡假设不同）")
+    print("全部 PASS：Step 5B finite transit-time + optical pumping 验证完成")
 
 
 if __name__ == "__main__":

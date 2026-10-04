@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""加载 Step 5.5B 所需的冻结模块。"""
+"""加载 Step 5A 所需的冻结模块。"""
 
 from pathlib import Path
 import sys
@@ -7,7 +7,6 @@ import sys
 
 WORKSPACE = Path(__file__).resolve().parents[3]
 SOURCE_DIRS = (
-    WORKSPACE / "MC" / "step_by_step" / "step5_5A_steady_state_benchmark",
     WORKSPACE / "MC" / "step_by_step" / "step5_polarization",
     WORKSPACE / "MC" / "step_by_step" / "step5_0_convention_validation",
     WORKSPACE / "MC" / "step_by_step" / "step4_5_ensemble",
@@ -22,4 +21,3 @@ for source_dir in reversed(SOURCE_DIRS):
     source = str(source_dir)
     if source not in sys.path:
         sys.path.insert(0, source)
-

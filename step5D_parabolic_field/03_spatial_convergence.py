@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Step 6B 测试 3：抛物线 B(z) 的空间离散与 DeltaB->0 control。"""
+"""Step 5D 测试 3：抛物线 B(z) 的空间离散与 DeltaB->0 control。"""
 
 import json
 from pathlib import Path
@@ -20,7 +20,7 @@ def interpolate_complex(x_new, x, values):
 
 
 def main():
-    print("Step 6B 测试 3：spatial convergence + DeltaB->0")
+    print("Step 5D 测试 3：spatial convergence + DeltaB->0")
     config = ParabolicFieldConfig()
     model = FullStateSplitPropagator(config)
     dz_values_um = np.array([10.0, 5.0, 2.5, 1.25, 0.625])

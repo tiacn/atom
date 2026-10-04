@@ -58,6 +58,8 @@ D:\Code\python\atom
 6. 物理正确性优先于速度；确认正确后再做严格等价的优化。
 7. 明确区分“代码验证结论”“数值收敛结论”和“尚未加入的模型假设”。
 
+阶段命名约定：Step 5 正式极化接口完成后的四个验证分支固定命名为 Step 5A、5B、5C、5D；它们不占用新的主线整数阶段。从后续 Step 6 开始，每个阶段内的新脚本按 `6_1_*`、`6_2_*`……，Step 7 按 `7_1_*`、`7_2_*`……排序。现有 Step 2–5 的历史脚本名不追溯修改。长期方向与阶段边界以仓库根目录 `original_roadmap.md` 为准。
+
 ## 3. 总体数据流
 
 当前已经建立并验证到宏观极化：
@@ -104,7 +106,7 @@ P(z) -> update E(z) -> recompute atomic histories -> iterate
 delta_eff = delta_laser - k*v_z
 ```
 
-在 Step 5.5A/B 使用 ElecSus 外部频率轴时：
+在 Step 5A/5B 使用 ElecSus 外部频率轴时：
 
 ```text
 delta_internal_MHz = delta_external_MHz + 15.864 MHz - v_z/lambda/1e6
@@ -316,9 +318,9 @@ rho_bar[k] = mean(rho_final_all[current_slice == k])
 
 状态：PASS，冻结。此阶段只输出 `P`，不把一般非线性响应称为 `chi`。
 
-### Step 5.5A：稳态 OBE / Doppler / ElecSus benchmark
+### Step 5A：稳态 OBE / Doppler / ElecSus benchmark
 
-目录：`step5_5A_steady_state_benchmark/`
+目录：`step5A_steady_state_benchmark/`
 
 原计划问题：弱光、uniform B、热速度分布下，完整无限时间稳态 OBE 是否等于 ElecSus？
 
@@ -344,9 +346,9 @@ lim(s->0) lim(t->infinity) rho(t,s)
 - literal steady-state vs ElecSus：按原定义 FAIL，原因已解释。
 - fixed-thermal linear diagnostic：PASS，可作为后续弱光基准。
 
-### Step 5.5B：finite transit-time + optical pumping
+### Step 5B：finite transit-time + optical pumping
 
-目录：`step5_5B_finite_transit/`
+目录：`step5B_finite_transit/`
 
 问题：真实原子只有有限驻留时间时，响应如何从 thermal linear limit 过渡到 optical-pumped dark state？
 
@@ -388,9 +390,9 @@ t=0: P=0
 
 状态：主要测试 PASS，可冻结为当前 uniform-field finite-transit 基线。
 
-### Step 6A：受控 magnetic-history benchmark
+### Step 5C：受控 magnetic-history benchmark
 
-目录：`step6A_magnetic_history/`
+目录：`step5C_magnetic_history/`
 
 问题：在相同当前磁场、光场、总照光时间和入口态下，仅改变过去经历的纵向磁场，当前 `rho` 和 `P` 是否不同；差异能保持多久？
 
@@ -402,11 +404,11 @@ vs
 300 G for 1 us -> 300 G for T_post
 ```
 
-并做反向 `300 G -> 0 G` 对 `0 G -> 0 G`。统一使用 K39 D1、`I_g/8`、纯 `Delta-m=+1`、`v_z=0`、`s=1e-6`。laser detuning 从冻结 Step 5.5A 的当前场局域 weak-linear absorption 主峰数值确定。
+并做反向 `300 G -> 0 G` 对 `0 G -> 0 G`。统一使用 K39 D1、`I_g/8`、纯 `Delta-m=+1`、`v_z=0`、`s=1e-6`。laser detuning 从冻结 Step 5A 的当前场局域 weak-linear absorption 主峰数值确定。
 
 完成内容：
 
-- 所有正式点直接传播完整 256x256 Liouvillian，没有使用 Step 5.5B 的 51 维 reduced space。
+- 所有正式点直接传播完整 256x256 Liouvillian，没有使用 Step 5B 的 51 维 reduced space。
 - identical-history、uniform-L 和 segment-splitting controls 均达到约 `1e-13` 或更低。
 - 正向/反向扫描规定的 `T_post=0...10 us`。
 - 分解 `Delta rho` 的 `gg/ge/eg/ee` blocks，并用冻结 Step 5 计算 `Delta P_q`。
@@ -424,6 +426,33 @@ vs
 
 状态：PASS。结论只适用于弱光、纵向 B、瞬时场切换和当前无碰撞/无 ground relaxation 模型，不能直接外推到横向场、连续梯度或强光。
 
+### Step 5D：真实抛物线 B(z) 下的 local-vs-trajectory benchmark
+
+目录：`step5D_parabolic_field/`
+
+问题：在 25 mm cell、`B(z)=2500 G-500 G*(2z/L)^2` 的连续纵向高场中，按真实时间顺序传播的弱光 trajectory response 是否可以由当前位置的 frozen local response 近似？
+
+限定条件：K39 D1、`I_g/8`、纯 `Delta-m=+1`、top-hat、`s=1e-6`、无 MC、无传播、无碰撞和 ground relaxation；速度为 `v_z=+/-50,+/-100,+/-300,+/-500 m/s`。实验采用固定 laboratory laser frequency，因此改变速度会同时改变 Doppler detuning，速度曲线不能解释成单纯的“适应时间”扫描。
+
+完成内容：
+
+- 在 `B=2000...2500 G` 补做 fixed-thermal weak-linear OBE vs ElecSus 高场基准。
+- trajectory 始终保留完整 `(16,16)` 密度矩阵；未使用 Step 5B 的 51 维 reduced space。
+- 以真实空间中点的 `B(z)` 做 chronological propagation，禁止平均 B 或单个有效 L。
+- full-256 dense `expm` control、constant-B control、`DeltaB->0` control、空间网格收敛和 density-matrix diagnostics 均通过。
+- 比较八个正负速度的 `P_traj(z)` 与 `P_local(z)`，并在相同 B 的左右对称位置做 history/hysteresis diagnostic。
+
+主要结果：
+
+- 2000–2500 G 范围 OBE–ElecSus 最差 complex relative error 为 `0.740%`，高场 local reference 本身仍通过验证。
+- full-state factorized propagation 对 dense full-256 control 的 rho 相对误差约 `6.94e-10`；target-P 相对误差约 `4.10e-5`。
+- `dz=1.25 -> 0.625 um` 的 shared-node full-complex-P 误差约 `6.13e-11`，正式结果已空间收敛。
+- 对代表性 `v_z=+300 m/s`，bulk `epsilon_global=30.999%`，最大归一化误差 `42.116%`；`+500 m/s` 最大误差约 `52.845%`。因此在本模型和固定频率条件下，连续高场中的局域近似并不总是小修正。
+- 负速度结果明显不同；这是反向路径与 Doppler detuning 同时改变后的真实结果，不能只按 `|v_z|` 解释。
+- 预选 2100/2200/2300/2400 G 的左右同-B history 差异小于最大 local discrepancy；最大误差更接近窄空间共振。Step 5C 的约 100 ns switch-memory 只能提供尺度直觉，不能替代连续 chronological propagation。
+
+状态：PASS。这里验证的是 deterministic 单原子弱光连续场 benchmark；尚不能直接外推成热速度 MC 系综结论，也不能把全部差异归因于单一 magnetic lag。
+
 ## 6. 当前数值性能和优化边界
 
 最初改用 L 矩阵的主要原因是直接调用 PyLCP OBE 对大量原子、切片和失谐点过慢。
@@ -432,7 +461,7 @@ vs
 
 - 小测试使用完整 256 维矩阵，锁定正确性。
 - uniform B/top-hat 时，相同 L 的逐 segment 传播可按半群性质合并为总时间传播。
-- Step 5.5B 的纯圆偏振条件使用经过严格不变性验证的 51 维 reachable subspace。
+- Step 5B 的纯圆偏振条件使用经过严格不变性验证的 51 维 reachable subspace。
 - detuning mode 使用 cache；正式谱当前分辨率通常为 `0.25 MHz`。
 
 注意：51 维子空间是当前初态、偏振和 uniform-field 条件下的结果。加入任意偏振、横向磁场、非均匀光场或新的弛豫项后，必须重新验证 reachable subspace，不能直接假定仍为 51 维。
@@ -461,6 +490,8 @@ vs
 9. finite transit-time 把 coherence 建立、近线性响应和 optical pumping 暗态连接起来。
 10. 当前强光下的响应差异是模型预期的历史依赖/非线性效应，不应靠经验缩放消除。
 11. 弱光纵向 B 的 optical magnetic memory 在约百纳秒内衰减；微秒时当前 P 已近似局域响应，但完整 rho 可保留很小的 ground-population 历史。
+12. 2000–2500 G 的 fixed-thermal weak-linear local response 仍能在 1% complex error 内复现 ElecSus。
+13. 在固定实验频率、弱光、无 ground relaxation 的连续抛物线场中，单原子 trajectory response 可在窄空间共振附近明显偏离 frozen local response；该差异已通过完整状态传播和空间收敛检查，但尚不是热系综结论。
 
 ## 8. 当前模型假设和未完成内容
 
@@ -468,7 +499,7 @@ vs
 
 - Maxwell 光场传播和 `E(z)` 自洽更新；
 - 光场被原子吸收后对后续 slices 的反馈；
-- 非均匀 B 下的大规模完整 finite-transit benchmark；
+- 非均匀 B 下的热速度、大规模 MC finite-transit ensemble benchmark（deterministic 单原子连续场基准已在 Step 5D 完成）；
 - Gaussian transverse intensity；
 - ground-state relaxation、buffer-gas collision、spin exchange、wall collision；
 - 原子离开后 dark evolution 和 re-entry；
@@ -480,7 +511,7 @@ vs
 
 ## 9. MC 噪声的当前判断
 
-整体平均响应和逐 slice profile 的收敛速度不同。Step 5.5B 在强 pumping 条件下得到的大致 seed dispersion：
+整体平均响应和逐 slice profile 的收敛速度不同。Step 5B 在强 pumping 条件下得到的大致 seed dispersion：
 
 | atoms/slice | global response | per-slice `P_q(z)` profile |
 |---:|---:|---:|
@@ -498,12 +529,14 @@ vs
 
 ## 10. 建议的下一阶段
 
-Step 5.5B 之后不要直接把噪声较大的 `P(z)` 塞进复杂传播循环。建议拆分：
+Step 5A–5D 验证路线完成后，不要直接把噪声较大的 `P(z)` 塞进复杂传播循环。下一条主线是 Step 6，并应拆分为：
 
-1. 先定义一个独立的传播基准阶段，在已知弱光 `chi`、uniform medium 条件下验证 Maxwell/Jones/Beer-Lambert 的符号、单位和步长收敛。
-2. 再把冻结 Step 5 的 `P(z)` 接入单向传播，先保持原子响应不反馈或只做一次 update。
-3. 最后才建立 `E(z) -> trajectories/rho -> P(z) -> E(z)` 自洽迭代，并单独测试收敛、因果顺序和 MC 噪声传播。
-4. 如果下一步优先研究非均匀 B 或 Gaussian beam，应先新建对应的局部验证目录，不要同时加入传播、碰撞和新几何。
+1. Step 6：先定义独立 Maxwell-only 传播基准，在已知弱光 `chi`、uniform medium 条件下验证 Maxwell/Jones/Beer-Lambert 的符号、单位和步长收敛。
+2. Step 7：把冻结 Step 5 的 `P(z)` 接入单向传播，保持原子响应不反馈，只完成一次 `E -> P -> E_new`。
+3. Step 8：建立 `E(z) -> trajectories/rho -> P(z) -> E(z)` 自洽迭代，并单独测试收敛、因果顺序和 MC 噪声传播。
+4. Step 9 以后再逐项接入实验磁场、强光、热 MC、Gaussian beam、碰撞或其他扩展；不能在一个阶段同时加入多个未经验证的新物理。
+
+从 Step 6 开始，每个阶段的脚本使用阶段前缀编号，例如 `6_1_*`、`6_2_*`，下一阶段再使用 `7_1_*`、`7_2_*`。四个已有验证目录继续保持 `step5A_*`、`step5B_*`、`step5C_*`、`step5D_*`。
 
 具体下一步必须由用户确认，不应由 AI 一次扩展多个新物理模块。
 
@@ -648,34 +681,45 @@ outputs/results.md 和 PNG。所有结论必须绑定这个 commit SHA。
 
 GitHub 中路径均相对于仓库根目录。
 
-### Step 5.5A
+### Step 5A
 
-- `step5_5A_steady_state_benchmark/outputs/linear_thermal_vs_elecsus.npz`
-- `step5_5A_steady_state_benchmark/outputs/literal_steady_state_dark_test.npz`
-- `step5_5A_steady_state_benchmark/outputs/velocity_integration_convergence.npz`
+- `step5A_steady_state_benchmark/outputs/linear_thermal_vs_elecsus.npz`
+- `step5A_steady_state_benchmark/outputs/literal_steady_state_dark_test.npz`
+- `step5A_steady_state_benchmark/outputs/velocity_integration_convergence.npz`
 
-### Step 5.5B
+### Step 5B
 
-- `step5_5B_finite_transit/outputs/single_detuning_time_and_space.png`
-- `step5_5B_finite_transit/outputs/single_detuning_5000_atoms.npz`
-- `step5_5B_finite_transit/outputs/saturation_crossover.png`
-- `step5_5B_finite_transit/outputs/saturation_scan.npz`
-- `step5_5B_finite_transit/outputs/mc_convergence.png`
-- `step5_5B_finite_transit/outputs/mc_convergence.npz`
-- `step5_5B_finite_transit/outputs/detuning_spectrum.png`
-- `step5_5B_finite_transit/outputs/detuning_spectrum_5000_atoms.npz`
-- `step5_5B_finite_transit/outputs/weak_light_detuning_spectrum.png`
-- `step5_5B_finite_transit/outputs/weak_light_detuning_spectrum_5000_atoms.npz`
+- `step5B_finite_transit/outputs/single_detuning_time_and_space.png`
+- `step5B_finite_transit/outputs/single_detuning_5000_atoms.npz`
+- `step5B_finite_transit/outputs/saturation_crossover.png`
+- `step5B_finite_transit/outputs/saturation_scan.npz`
+- `step5B_finite_transit/outputs/mc_convergence.png`
+- `step5B_finite_transit/outputs/mc_convergence.npz`
+- `step5B_finite_transit/outputs/detuning_spectrum.png`
+- `step5B_finite_transit/outputs/detuning_spectrum_5000_atoms.npz`
+- `step5B_finite_transit/outputs/weak_light_detuning_spectrum.png`
+- `step5B_finite_transit/outputs/weak_light_detuning_spectrum_5000_atoms.npz`
 
-### Step 6A
+### Step 5C
 
-- `step6A_magnetic_history/outputs/results.md`
-- `step6A_magnetic_history/outputs/controls.json`
-- `step6A_magnetic_history/outputs/magnetic_memory_decay.png`
-- `step6A_magnetic_history/outputs/rho_block_memory.png`
-- `step6A_magnetic_history/outputs/current_field_response_recovery.png`
-- `step6A_magnetic_history/outputs/forward_0G_to_300G.npz`
-- `step6A_magnetic_history/outputs/reverse_300G_to_0G.npz`
+- `step5C_magnetic_history/outputs/results.md`
+- `step5C_magnetic_history/outputs/controls.json`
+- `step5C_magnetic_history/outputs/magnetic_memory_decay.png`
+- `step5C_magnetic_history/outputs/rho_block_memory.png`
+- `step5C_magnetic_history/outputs/current_field_response_recovery.png`
+- `step5C_magnetic_history/outputs/forward_0G_to_300G.npz`
+- `step5C_magnetic_history/outputs/reverse_300G_to_0G.npz`
+
+### Step 5D
+
+- `step5D_parabolic_field/outputs/results.md`
+- `step5D_parabolic_field/outputs/high_field_benchmark.json`
+- `step5D_parabolic_field/outputs/propagator_controls.json`
+- `step5D_parabolic_field/outputs/spatial_convergence.json`
+- `step5D_parabolic_field/outputs/trajectory_benchmark.json`
+- `step5D_parabolic_field/outputs/trajectory_vs_local.png`
+- `step5D_parabolic_field/outputs/local_error_vs_position.png`
+- `step5D_parabolic_field/outputs/velocity_dependence.png`
 
 读取图像时要结合生成脚本和参数，不要只看文件名。特别是：
 

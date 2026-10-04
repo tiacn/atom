@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Step 6A 测试 2：正向/反向 magnetic-history 扫描、绘图与结果报告。"""
+"""Step 5C 测试 2：正向/反向 magnetic-history 扫描、绘图与结果报告。"""
 
 from pathlib import Path
 
@@ -157,7 +157,7 @@ def _ground_diagonal_fraction(scan, index):
 
 
 def main():
-    print("Step 6A 测试 2：forward/reverse magnetic-history scan")
+    print("Step 5C 测试 2：forward/reverse magnetic-history scan")
     config = MagneticMemoryConfig()
     forward_model = FullMagneticMemoryModel(
         past_B_G=0.0,
@@ -266,7 +266,7 @@ def main():
         reverse, reverse_1us
     )
 
-    results = f"""# Step 6A results
+    results = f"""# Step 5C results
 
 ## Status
 
@@ -286,7 +286,7 @@ PASS: deterministic full-256-dimensional magnetic-history benchmark completed.
 - Reverse history/reference: `300 G -> 0 G` versus `0 G -> 0 G`.
 - Forward external/internal detuning: `{forward_model.external_detuning_MHz:+.9f}` / `{forward_model.internal_detuning_MHz:+.9f} MHz`.
 - Reverse external/internal detuning: `{reverse_model.external_detuning_MHz:+.9f}` / `{reverse_model.internal_detuning_MHz:+.9f} MHz`.
-- Propagation: direct `scipy.linalg.expm(L*t)` on the full 256x256 L; no Step 5.5B reduced space.
+- Propagation: direct `scipy.linalg.expm(L*t)` on the full 256x256 L; no Step 5B reduced space.
 
 ## Controls
 

@@ -1,21 +1,16 @@
 # -*- coding: utf-8 -*-
-"""逐项运行 Step 5.5B。"""
+"""逐项运行 Step 5C。"""
 
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 
 def main():
     this_dir = Path(__file__).resolve().parent
-    scripts = (
-        "01_reduced_propagation.py",
-        "02_single_detuning.py",
-        "03_saturation_scan.py",
-        "04_mc_convergence.py",
-        "05_detuning_spectrum.py",
-    )
-    for script in scripts:
+    started = time.perf_counter()
+    for script in ("01_controls.py", "02_memory_scan.py"):
         print()
         print("=" * 78)
         print(f"运行 {script}")
@@ -25,11 +20,10 @@ def main():
             cwd=str(this_dir),
             check=True,
         )
-
+    elapsed = time.perf_counter() - started
     print()
-    print("全部 PASS：Step 5.5B finite transit-time + optical pumping 验证完成")
+    print(f"全部 PASS：Step 5C magnetic-history benchmark（{elapsed:.3f} s）")
 
 
 if __name__ == "__main__":
     main()
-

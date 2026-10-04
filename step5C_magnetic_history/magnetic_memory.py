@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Step 6A 的完整 256 维受控 magnetic-history 实验。"""
+"""Step 5C 的完整 256 维受控 magnetic-history 实验。"""
 
 from __future__ import annotations
 

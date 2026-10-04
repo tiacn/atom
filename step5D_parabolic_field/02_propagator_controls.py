@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Step 6B 测试 2：full-state split propagator 与 dense full-256 expm。"""
+"""Step 5D 测试 2：full-state split propagator 与 dense full-256 expm。"""
 
 import json
 from pathlib import Path
@@ -18,7 +18,7 @@ def relative(a, b):
 
 
 def main():
-    print("Step 6B 测试 2：full-state propagator controls")
+    print("Step 5D 测试 2：full-state propagator controls")
     model = FullStateSplitPropagator(ParabolicFieldConfig())
     assert model.N**2 == 256
     assert model.decay_completeness_error < 1.0e-12

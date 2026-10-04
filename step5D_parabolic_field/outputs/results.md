@@ -1,4 +1,4 @@
-# Step 6B results
+# Step 5D results
 
 ## Status
 
@@ -84,7 +84,7 @@ Entries are `|P_traj(left)-P_traj(right)| / max_z|P_local|` at symmetric positio
 2. The chronological continuous-B propagation is numerically converged and obeys trace, Hermiticity, positivity, constant-B, and `DeltaB->0` controls.
 3. At `v=+300 m/s`, the trajectory differs from the frozen local response by about `31.0%` globally and `42.1%` at the largest point. This is not a small locality correction under the exact fixed-frequency/no-ground-relaxation model tested here.
 4. The same-B left/right comparison detects path dependence, but at the requested 2100/2200/2300/2400 G points it is much smaller than the largest local error (for `+300 m/s`, at most `0.006234`). The largest local discrepancy occurs close to narrow spatial resonances rather than at those four preselected B values.
-5. `DeltaB_memory=|v*dB/dz|*100 ns` reaches only `2.40 G` for `+300 m/s`; nevertheless the full accumulated trajectory can retain a larger difference than this one-timescale estimate suggests. The Step 6A switch-memory estimate is therefore useful context but does not replace continuous chronological propagation.
+5. `DeltaB_memory=|v*dB/dz|*100 ns` reaches only `2.40 G` for `+300 m/s`; nevertheless the full accumulated trajectory can retain a larger difference than this one-timescale estimate suggests. The Step 5C switch-memory estimate is therefore useful context but does not replace continuous chronological propagation.
 6. Because ground-state relaxation/collisions are absent, and because the fixed laser plus Doppler shift couples speed to spectral detuning, this benchmark alone must not yet be generalized to a thermal ensemble or used to claim that all of the observed difference is a single 100 ns magnetic lag.
 
 ## Files

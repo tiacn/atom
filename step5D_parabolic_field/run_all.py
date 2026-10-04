@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Run all Step 6B checks in order."""
+"""Run all Step 5D checks in order."""
 
 from pathlib import Path
 import subprocess
@@ -17,7 +17,7 @@ def main():
     for script in scripts:
         print(f"\n=== {script} ===", flush=True)
         subprocess.run([sys.executable, "-u", str(root / script)], check=True)
-    print("\nALL STEP 6B TESTS PASS", flush=True)
+    print("\nALL STEP 5D TESTS PASS", flush=True)
 
 
 if __name__ == "__main__":

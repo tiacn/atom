@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Step 6B 测试 1：2000--2500 G fixed-thermal OBE vs ElecSus。"""
+"""Step 5D 测试 1：2000--2500 G fixed-thermal OBE vs ElecSus。"""
 
 import json
 from dataclasses import asdict
@@ -13,7 +13,7 @@ from benchmark import BenchmarkConfig, LinearThermalResponse, spectrum_metrics
 
 
 def main():
-    print("Step 6B 测试 1：high-field local benchmark")
+    print("Step 5D 测试 1：high-field local benchmark")
     config = BenchmarkConfig(saturation=1.0e-6)
     response = LinearThermalResponse(config)
     fields = np.arange(2000.0, 2500.1, 100.0)

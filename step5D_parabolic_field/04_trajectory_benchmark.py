@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Step 6B test 4: deterministic trajectories through the parabolic field."""
+"""Step 5D test 4: deterministic trajectories through the parabolic field."""
 
 from __future__ import annotations
 
@@ -239,7 +239,7 @@ def build_results_md(
     maximum_profile = max(
         summaries.values(), key=lambda item: item["max_epsilon_bulk"]
     )
-    return f"""# Step 6B results
+    return f"""# Step 5D results
 
 ## Status
 
@@ -311,7 +311,7 @@ Entries are `|P_traj(left)-P_traj(right)| / max_z|P_local|` at symmetric positio
 2. The chronological continuous-B propagation is numerically converged and obeys trace, Hermiticity, positivity, constant-B, and `DeltaB->0` controls.
 3. At `v=+300 m/s`, the trajectory differs from the frozen local response by about `{100*representative['epsilon_global_bulk']:.1f}%` globally and `{100*representative['max_epsilon_bulk']:.1f}%` at the largest point. This is not a small locality correction under the exact fixed-frequency/no-ground-relaxation model tested here.
 4. The same-B left/right comparison detects path dependence, but at the requested 2100/2200/2300/2400 G points it is much smaller than the largest local error (for `+300 m/s`, at most `{max(item['normalized_difference'] for item in representative['hysteresis']):.6f}`). The largest local discrepancy occurs close to narrow spatial resonances rather than at those four preselected B values.
-5. `DeltaB_memory=|v*dB/dz|*100 ns` reaches only `{representative['max_delta_B_memory_G']:.2f} G` for `+300 m/s`; nevertheless the full accumulated trajectory can retain a larger difference than this one-timescale estimate suggests. The Step 6A switch-memory estimate is therefore useful context but does not replace continuous chronological propagation.
+5. `DeltaB_memory=|v*dB/dz|*100 ns` reaches only `{representative['max_delta_B_memory_G']:.2f} G` for `+300 m/s`; nevertheless the full accumulated trajectory can retain a larger difference than this one-timescale estimate suggests. The Step 5C switch-memory estimate is therefore useful context but does not replace continuous chronological propagation.
 6. Because ground-state relaxation/collisions are absent, and because the fixed laser plus Doppler shift couples speed to spectral detuning, this benchmark alone must not yet be generalized to a thermal ensemble or used to claim that all of the observed difference is a single 100 ns magnetic lag.
 
 ## Files
@@ -326,7 +326,7 @@ Entries are `|P_traj(left)-P_traj(right)| / max_z|P_local|` at symmetric positio
 
 
 def main():
-    print("Step 6B test 4: deterministic parabolic-field trajectories", flush=True)
+    print("Step 5D test 4: deterministic parabolic-field trajectories", flush=True)
     OUTPUTS.mkdir(parents=True, exist_ok=True)
     PROFILE_DIR.mkdir(parents=True, exist_ok=True)
     config = ParabolicFieldConfig()
@@ -447,7 +447,7 @@ def main():
         build_results_md(config, model, summaries, high_field, controls, convergence),
         encoding="utf-8",
     )
-    print("PASS: Step 6B deterministic trajectory benchmark", flush=True)
+    print("PASS: Step 5D deterministic trajectory benchmark", flush=True)
 
 
 if __name__ == "__main__":

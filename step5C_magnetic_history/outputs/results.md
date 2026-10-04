@@ -1,4 +1,4 @@
-# Step 6A results
+# Step 5C results
 
 ## Status
 
@@ -18,7 +18,7 @@ PASS: deterministic full-256-dimensional magnetic-history benchmark completed.
 - Reverse history/reference: `300 G -> 0 G` versus `0 G -> 0 G`.
 - Forward external/internal detuning: `+352.811197635` / `+368.675197635 MHz`.
 - Reverse external/internal detuning: `-168.177645075` / `-152.313645075 MHz`.
-- Propagation: direct `scipy.linalg.expm(L*t)` on the full 256x256 L; no Step 5.5B reduced space.
+- Propagation: direct `scipy.linalg.expm(L*t)` on the full 256x256 L; no Step 5B reduced space.
 
 ## Controls
 
